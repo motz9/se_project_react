@@ -1,5 +1,5 @@
-import './WeatherCard.css';
-import sunny from '../../assets/sunny.svg';
+import "./WeatherCard.css";
+import sunny from "../../assets/sunny.svg";
 
 function WeatherCard() {
     return <section className="weather-card">
