@@ -3,7 +3,7 @@ import closebtn from "../../assets/closebtn.svg";
 
 function ModalWithForm({ children, buttonText, title }) {
   return (
-    <div className="modal modal__is-opened">
+    <div className="modal">
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button type="button" className="modal__close">

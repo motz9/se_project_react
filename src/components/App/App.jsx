@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import Footer from "../Footer/Footer";
 import "../../vendor/fonts.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div className="page__content">
         <Header />
         <Main weatherData={weatherData} />
+        <Footer />
       </div>
       <ModalWithForm title="New garment" buttonText="Add garment">
         <label htmlFor="name" className="modal__label">
