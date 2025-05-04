@@ -1,7 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 43px 0 33px;
+  padding: 0 0 33px;
 }
 
 .header__logo {
@@ -17,6 +17,7 @@
 }
 
 .header__add-clothes-btn {
+  cursor: pointer;
   margin: 0 20px 0 auto;
   border: none;
   font-family: "Cabinet Grotesk", sans-serif;
