@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./Header.css";
 import logo from "../../assets/wtwr-logo.svg";
 import avatar from "../../assets/wtwr-avatar.svg";
@@ -8,6 +10,12 @@ function Header({ handleAddClick, weatherData }) {
     day: "numeric",
   });
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header className="header">
       <img className="header__logo" src={logo} alt="logo" />
@@ -17,11 +25,20 @@ function Header({ handleAddClick, weatherData }) {
       <button
         onClick={handleAddClick}
         type="button"
-        className="header__add-clothes-btn"
+        className="header__add-clothes-button"
       >
         + Add Clothes
       </button>
-      <div className="header__user-container">
+      <button onClick={toggleMobileMenu} className="header__menu-button">
+        {isMobileMenuOpen ? (
+          <i className="fa-solid fa-xmark" />
+        ) : (
+          <i className="fa-solid fa-bars" />
+        )}
+      </button>
+      <div
+        className={`header__user-container ${isMobileMenuOpen ? "opened" : ""}`}
+      >
         <p className="header__username">Terrence Tegegne</p>
         <img
           className="header__user-avatar"

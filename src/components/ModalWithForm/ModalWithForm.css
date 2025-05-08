@@ -20,7 +20,7 @@
 
 .modal__title {
   margin: 0;
-  font-family: 'Cabinet Grotesk';
+  font-family: "Cabinet Grotesk";
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -28,7 +28,7 @@
 
 .modal__label {
   margin-top: 24px;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -86,7 +86,7 @@
 
 .modal__legend {
   margin-bottom: 12px;
-  font-family: 'Cabinet Grotesk';
+  font-family: "Cabinet Grotesk";
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -116,6 +116,7 @@
 }
 
 .modal__submit {
+  cursor: pointer;
   margin-top: auto;
   margin-left: 0;
   padding: 8px 16px;
@@ -123,7 +124,7 @@
   height: 36px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  font-family: 'Cabinet Grotesk';
+  font-family: "Cabinet Grotesk";
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
