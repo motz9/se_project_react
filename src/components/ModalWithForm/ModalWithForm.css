@@ -129,5 +129,14 @@
   font-weight: 700;
   line-height: 20px;
   color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 1);
+  transition: background-color 0.5s ease;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit:disabled {
   background-color: rgba(0, 0, 0, 0.3);
 }
