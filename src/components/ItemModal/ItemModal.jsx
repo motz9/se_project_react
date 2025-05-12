@@ -13,10 +13,12 @@ function ItemModal({ activeModal, card, onClose }) {
             alt="close-button"
           />
         </button>
-        <img src={card.link} alt="" className="modal__image" />
+        <img src={card.link} alt="item name" className="modal__image" />
         <div className="modal__footer">
           <h2 className="modal__text-base modal__caption">{card.name}</h2>
-          <p className="modal__text-base modal__weather">Weather: {card.weather}</p>
+          <p className="modal__text-base modal__weather">
+            Weather: {card.weather}
+          </p>
         </div>
       </div>
     </div>
