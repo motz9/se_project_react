@@ -53,6 +53,15 @@ function App() {
     closeActiveModal();
   };
 
+  const handleDeleteItem = (id) => {
+    setClothingItems((prevItems) => 
+      prevItems.filter((item) => {
+        return item._id !== id;
+      })
+  )
+    closeActiveModal();
+  };
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -98,6 +107,7 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
+            onDeleteItem={handleDeleteItem}
           />
         </div>
       </BrowserRouter>
