@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../assets/wtwr-logo.svg";
@@ -19,7 +20,9 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="logo" />
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="logo" />
+      </Link>
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
@@ -38,16 +41,20 @@ function Header({ handleAddClick, weatherData }) {
           <i className="fa-solid fa-bars" />
         )}
       </button>
-      <div
-        className={`header__user-container ${isMobileMenuOpen ? "opened" : ""}`}
-      >
-        <p className="header__username">Terrence Tegegne</p>
-        <img
-          className="header__user-avatar"
-          src={avatar}
-          alt="Terrence Tegegne"
-        />
-      </div>
+      <Link to="/profile" className="header__link">
+        <div
+          className={`header__user-container ${
+            isMobileMenuOpen ? "opened" : ""
+          }`}
+        >
+          <p className="header__username">Terrence Tegegne</p>
+          <img
+            className="header__user-avatar"
+            src={avatar}
+            alt="Terrence Tegegne"
+          />
+        </div>
+      </Link>
     </header>
   );
 }
