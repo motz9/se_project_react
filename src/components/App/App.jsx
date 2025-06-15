@@ -12,7 +12,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import "../../vendor/fonts.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { defaultClothingItems } from "../../utils/constants";
+import { getItems, addItem, removeItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -23,7 +23,7 @@ function App() {
     isDay: false,
   });
 
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -45,20 +45,22 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
+  const handleAddItemModalSubmit = async ({ name, imageUrl, weather }) => {
+    const newItem = await addItem({ name, imageUrl, weather }).catch(console.error);
     setClothingItems((prevItems) => [
-      { name, link: imageUrl, weather },
+      newItem,
       ...prevItems,
     ]);
     closeActiveModal();
   };
 
-  const handleDeleteItem = (id) => {
-    setClothingItems((prevItems) => 
+  const handleDeleteItem = async (id) => {
+    await removeItem(id).catch(console.error)
+    setClothingItems((prevItems) =>
       prevItems.filter((item) => {
         return item._id !== id;
       })
-  )
+    );
     closeActiveModal();
   };
 
@@ -67,6 +69,14 @@ function App() {
       .then((data) => {
         const filterData = processWeatherData(data);
         setWeatherData(filterData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
@@ -93,7 +103,12 @@ function App() {
               />
               <Route
                 path="/profile"
-                element={<Profile clothingItems={clothingItems} handleCardClick={handleCardClick} />}
+                element={
+                  <Profile
+                    clothingItems={clothingItems}
+                    handleCardClick={handleCardClick}
+                  />
+                }
               />
             </Routes>
             <Footer />
