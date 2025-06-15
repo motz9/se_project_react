@@ -33,7 +33,7 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.cards__list_clothes-section {
+.cards__list.cards__list_clothes-section {
   margin-left: 116px;
   margin-top: 16px;
   display: grid;
