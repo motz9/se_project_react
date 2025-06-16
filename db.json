@@ -94,12 +94,6 @@
       "name": "Hoodie",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag",
       "weather": "warm",
-      "_id": 17
-    },
-    {
-      "name": "Hoodie",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag",
-      "weather": "warm",
       "_id": 18
     },
     {
