@@ -4,15 +4,36 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-  gap: 21px;
+  gap: 20px;
+}
+
+.cards__list_clothes-section {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1420px) {
+  .cards__list_clothes-section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .cards__list_clothes-section {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cards__text {
-    font-family: 'Cabinet Grotesk', sans-serif;
-    font-size: 20px;
-    line-height: 100%;
-    font-weight: 700;
-    margin-top: 40px;
-    margin-bottom: 34px;
- }
-
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 34px;
+}

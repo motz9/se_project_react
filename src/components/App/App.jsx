@@ -45,20 +45,26 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModalSubmit = async ({ name, imageUrl, weather }) => {
-    const newItem = await addItem({ name, imageUrl, weather });
-    setClothingItems((prevItems) => [newItem, ...prevItems]);
-    closeActiveModal().catch(console.error);
+  const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
+    addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
-  const handleDeleteItem = async (id) => {
-    await removeItem(id);
-    setClothingItems((prevItems) =>
-      prevItems.filter((item) => {
-        return item._id !== id;
+  const handleDeleteItem = (id) => {
+    removeItem(id)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => {
+            return item._id !== id;
+          })
+        );
+        closeActiveModal();
       })
-    );
-    closeActiveModal().catch(console.error);
+      .catch(console.error);
   };
 
   useEffect(() => {
